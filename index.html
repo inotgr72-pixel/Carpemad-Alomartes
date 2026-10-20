@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpintería Alomartes | Artesanía en Madera en Granada</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración de colores personalizados de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wood: {
+                            100: '#f4ede4',
+                            200: '#e1d0bc',
+                            300: '#cdb191',
+                            400: '#b78f62',
+                            500: '#a3713f',
+                            600: '#895a32',
+                            700: '#6d4629',
+                            800: '#563824',
+                            900: '#462e1f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilos adicionales personalizados */
+        .bg-hero {
+            background-image: linear-gradient(rgba(70, 46, 31, 0.7), rgba(70, 46, 31, 0.7)), url('https://images.unsplash.com/photo-1611078811804-0c585097bc0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .gallery-img {
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-stone-800 bg-wood-100 antialiased selection:bg-wood-500 selection:text-white">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-wood-900 text-wood-100 shadow-lg" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-tree text-2xl mr-2 text-wood-300"></i>
+                    <span class="font-serif font-bold text-2xl tracking-wide">Alomartes</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="hover:text-wood-300 transition-colors font-medium text-sm uppercase tracking-wider">Inicio</a>
+                    <a href="#sobre-nosotros" class="hover:text-wood-300 transition-colors font-medium text-sm uppercase tracking-wider">Nosotros</a>
+                    <a href="#servicios" class="hover:text-wood-300 transition-colors font-medium text-sm uppercase tracking-wider">Servicios</a>
+                    <a href="#galeria" class="hover:text-wood-300 transition-colors font-medium text-sm uppercase tracking-wider">Galería</a>
+                    <a href="#contacto" class="bg-wood-600 hover:bg-wood-500 text-white px-5 py-2 rounded-sm transition-colors font-medium text-sm uppercase tracking-wider shadow-md">Contacto</a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-wood-100 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-wood-800 border-t border-wood-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-wood-700 hover:text-white">Inicio</a>
+                <a href="#sobre-nosotros" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-wood-700 hover:text-white">Nosotros</a>
+                <a href="#servicios" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-wood-700 hover:text-white">Servicios</a>
+                <a href="#galeria" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-wood-700 hover:text-white">Galería</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium bg-wood-600 text-white mt-4 text-center">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Inicio (Hero Section) -->
+    <section id="inicio" class="bg-hero min-h-screen flex items-center relative pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-wood-900/90"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 lg:w-1/2">
+                <p class="text-wood-300 font-medium tracking-[0.2em] uppercase mb-3 text-sm md:text-base">Tradición y Vanguardia</p>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                    El arte de dar vida a la madera
+                </h1>
+                <p class="text-lg md:text-xl text-wood-100 mb-8 max-w-xl mx-auto md:mx-0 font-light">
+                    Carpintería y ebanistería a medida en Alomartes. Creamos espacios únicos con la calidez y elegancia que solo la auténtica artesanía puede ofrecer.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contacto" class="inline-block bg-wood-500 hover:bg-wood-400 text-white font-semibold px-8 py-4 rounded-sm transition-all duration-300 shadow-lg text-center">
+                        Pide Presupuesto
+                    </a>
+                    <a href="#servicios" class="inline-block bg-transparent border border-wood-300 text-wood-100 hover:bg-wood-300 hover:text-wood-900 font-semibold px-8 py-4 rounded-sm transition-all duration-300 text-center">
+                        Nuestros Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative wave/shape bottom -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.15,193.32,111.45,237.28,103.22,280.4,85.6,321.39,56.44Z" fill="#f4ede4"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 2. Sobre Nosotros -->
+    <section id="sobre-nosotros" class="py-24 bg-wood-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Imagen -->
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute inset-0 bg-wood-500 translate-x-4 translate-y-4 rounded-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Carpintero trabajando" class="relative z-10 w-full h-auto object-cover rounded-sm shadow-xl">
+                    <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-sm shadow-xl z-20 hidden md:block border-l-4 border-wood-600">
+                        <p class="font-serif text-4xl font-bold text-wood-800">25+</p>
+                        <p class="text-stone-600 font-medium">Años de experiencia</p>
+                    </div>
+                </div>
+                
+                <!-- Texto -->
+                <div class="lg:w-1/2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-[2px] bg-wood-500"></span>
+                        <h3 class="text-wood-600 font-semibold tracking-wider uppercase text-sm">Nuestra Historia</h3>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-wood-900 mb-6">Artesanía y dedicación en el corazón de Alomartes</h2>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        Situados en el hermoso entorno de Alomartes (Granada), somos una carpintería familiar dedicada al noble oficio de la ebanistería. Durante décadas, hemos transformado la madera en piezas únicas que combinan funcionalidad, belleza y durabilidad.
+                    </p>
+                    <p class="text-stone-600 mb-8 leading-relaxed">
+                        Creemos en el trabajo artesanal, seleccionando meticulosamente nuestras materias primas y cuidando cada detalle. Ya sea un pequeño proyecto de restauración o el diseño integral de una vivienda, nuestro compromiso es superar las expectativas de nuestros clientes, aportando el toque inconfundible de la madera trabajada con pasión.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-wood-500 mt-1 mr-3"></i>
+                            <span class="text-stone-700 font-medium">Materiales de primera calidad y origen sostenible.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-wood-500 mt-1 mr-3"></i>
+                            <span class="text-stone-700 font-medium">Diseños 100% a medida adaptados a tu espacio.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-wood-500 mt-1 mr-3"></i>
+                            <span class="text-stone-700 font-medium">Asesoramiento personalizado en cada proyecto.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Servicios -->
+    <section id="servicios" class="py-24 bg-white relative">
+        <!-- Textura sutil de fondo -->
+        <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <span class="w-12 h-[2px] bg-wood-500"></span>
+                    <h3 class="text-wood-600 font-semibold tracking-wider uppercase text-sm">Lo que hacemos</h3>
+                    <span class="w-12 h-[2px] bg-wood-500"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-wood-900 mb-6">Nuestros Servicios</h2>
+                <p class="text-stone-600">Ofrecemos soluciones integrales en madera para tu hogar o negocio, garantizando acabados perfectos y duraderos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-wood-100 p-8 rounded-sm hover:shadow-xl transition-all duration-300 group border border-wood-200 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-wood-800 rounded-full flex items-center justify-center text-white mb-6 group-hover:bg-wood-500 transition-colors">
+                        <i class="fa-solid fa-couch text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-wood-900 mb-3">Muebles a Medida</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Armarios empotrados, estanterías, mesas y dormitorios diseñados exclusivamente para aprovechar cada rincón de tu hogar.
+                    </p>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="bg-wood-100 p-8 rounded-sm hover:shadow-xl transition-all duration-300 group border border-wood-200 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-wood-800 rounded-full flex items-center justify-center text-white mb-6 group-hover:bg-wood-500 transition-colors">
+                        <i class="fa-solid fa-door-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-wood-900 mb-3">Puertas y Ventanas</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Fabricación e instalación de puertas de paso, puertas de entrada macizas y ventanas de madera con gran aislamiento.
+                    </p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-wood-100 p-8 rounded-sm hover:shadow-xl transition-all duration-300 group border border-wood-200 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-wood-800 rounded-full flex items-center justify-center text-white mb-6 group-hover:bg-wood-500 transition-colors">
+                        <i class="fa-solid fa-kitchen-set text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-wood-900 mb-3">Cocinas</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Diseño y montaje de cocinas personalizadas. Materiales resistentes a la humedad y herrajes de última generación.
+                    </p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-wood-100 p-8 rounded-sm hover:shadow-xl transition-all duration-300 group border border-wood-200 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-wood-800 rounded-full flex items-center justify-center text-white mb-6 group-hover:bg-wood-500 transition-colors">
+                        <i class="fa-solid fa-hammer text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-wood-900 mb-3">Restauración</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Devolvemos la vida y el esplendor a muebles antiguos o dañados, respetando su historia y esencia original.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Galería -->
+    <section id="galeria" class="py-24 bg-wood-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-[2px] bg-wood-400"></span>
+                        <h3 class="text-wood-300 font-semibold tracking-wider uppercase text-sm">Portafolio</h3>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Nuestros Trabajos</h2>
+                </div>
+                <p class="text-wood-200 max-w-md md:text-right text-sm md:text-base">
+                    Un vistazo a algunos de nuestros proyectos recientes en Granada. Cada pieza es única y refleja nuestra pasión por la madera.
+                </p>
+            </div>
+
+            <!-- Grid de Galería -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="gallery-item relative overflow-hidden h-64 md:h-80 rounded-sm group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cocina a medida" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="text-xl font-serif font-bold text-white mb-2">Cocina Rústica</h4>
+                            <p class="text-wood-300 text-sm">Roble macizo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item relative overflow-hidden h-64 md:h-80 rounded-sm group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mueble de salón" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="text-xl font-serif font-bold text-white mb-2">Salón Moderno</h4>
+                            <p class="text-wood-300 text-sm">Nogal y lacado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden h-64 md:h-80 rounded-sm group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1591825729269-caeb344f58be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Puerta de madera" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="text-xl font-serif font-bold text-white mb-2">Puerta de Entrada</h4>
+                            <p class="text-wood-300 text-sm">Pino silvestre</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden h-64 md:h-80 rounded-sm group cursor-pointer lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Armario vestidor" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="text-xl font-serif font-bold text-white mb-2">Vestidor Integral</h4>
+                            <p class="text-wood-300 text-sm">Castaño a medida</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden h-64 md:h-80 rounded-sm group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1604074131665-7a4b13870ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restauración" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h4 class="text-xl font-serif font-bold text-white mb-2">Restauración</h4>
+                            <p class="text-wood-300 text-sm">Mesa del s.XIX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contacto -->
+    <section id="contacto" class="py-24 bg-wood-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-md shadow-2xl overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    
+                    <!-- Información de contacto -->
+                    <div class="lg:w-2/5 bg-wood-800 text-white p-10 md:p-14 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-serif font-bold mb-6">Contacta con nosotros</h3>
+                            <p class="text-wood-200 mb-10 leading-relaxed">
+                                ¿Tienes un proyecto en mente? Cuéntanos qué necesitas y te prepararemos un presupuesto sin compromiso. Estamos en Alomartes, sirviendo a toda la provincia de Granada.
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-wood-700 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Dirección</h4>
+                                        <p class="text-wood-300 text-sm">Calle Taller, 12<br>18360 Alomartes, Granada</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-wood-700 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Teléfono</h4>
+                                        <p class="text-wood-300 text-sm">+34 958 000 123<br>+34 600 111 222</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-wood-700 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Email</h4>
+                                        <p class="text-wood-300 text-sm">info@carpinteriaalomartes.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12 pt-8 border-t border-wood-700 flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-wood-700 hover:bg-wood-500 flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-wood-700 hover:bg-wood-500 flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-wood-700 hover:bg-wood-500 flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario -->
+                    <div class="lg:w-3/5 p-10 md:p-14">
+                        <h3 class="text-2xl font-serif font-bold text-wood-900 mb-8">Envíanos un mensaje</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nombre" class="block text-sm font-medium text-stone-700 mb-2">Nombre completo</label>
+                                    <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 border border-stone-300 rounded-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none transition-colors bg-stone-50">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-stone-700 mb-2">Correo electrónico</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-stone-300 rounded-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none transition-colors bg-stone-50">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="asunto" class="block text-sm font-medium text-stone-700 mb-2">Asunto (Ej: Presupuesto cocina)</label>
+                                <input type="text" id="asunto" name="asunto" class="w-full px-4 py-3 border border-stone-300 rounded-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none transition-colors bg-stone-50">
+                            </div>
+                            <div>
+                                <label for="mensaje" class="block text-sm font-medium text-stone-700 mb-2">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-3 border border-stone-300 rounded-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none transition-colors bg-stone-50 resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-wood-600 hover:bg-wood-700 text-white font-bold py-4 px-6 rounded-sm transition-colors duration-300 shadow-md flex justify-center items-center gap-2">
+                                <span>Enviar Mensaje</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-wood-950 text-wood-300 py-8 border-t border-wood-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <i class="fa-solid fa-tree mr-2"></i>
+                <span class="font-serif font-bold text-xl text-white">Carpintería Alomartes</span>
+            </div>
+            <p class="text-sm text-center md:text-left">
+                &copy; 2026 Carpintería Alomartes, Granada. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Form Submission -->
+    <div id="success-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <!-- Modal Content -->
+        <div class="relative bg-white p-8 rounded-md shadow-2xl max-w-sm w-full mx-4 transform transition-all scale-95 opacity-0" id="modal-content">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-check text-2xl text-green-600"></i>
+            </div>
+            <h3 class="text-2xl font-serif font-bold text-center text-wood-900 mb-2">¡Mensaje Enviado!</h3>
+            <p class="text-stone-600 text-center mb-6">Gracias por contactar con nosotros. Te responderemos lo antes posible con tu presupuesto.</p>
+            <button onclick="closeModal()" class="w-full bg-wood-600 hover:bg-wood-700 text-white font-bold py-3 px-4 rounded-sm transition-colors">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Lógica del menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Cambiar estilo del Navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-0');
+                nav.classList.remove('py-2');
+                nav.classList.replace('bg-wood-900', 'bg-wood-900/95');
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-0');
+                nav.classList.replace('bg-wood-900/95', 'bg-wood-900');
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+
+        // Lógica del Formulario y Modal Custom
+        const form = document.getElementById('contact-form');
+        const modal = document.getElementById('success-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita que se recargue la página
+            
+            // Mostrar modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animación de entrada
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Limpiar formulario
+            form.reset();
+        });
+
+        function closeModal() {
+            // Animación de salida
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Esperar a que termine la transición
+        }
+    </script>
+</body>
+</html>
